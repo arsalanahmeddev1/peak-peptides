@@ -12,7 +12,7 @@
             </a>
 
           
-            <nav class="footer-nav">
+            <nav class="footer-nav style-inter">
                 <a href="{{ url('/') }}" class="footer-nav-item">
                     Home
                 </a>

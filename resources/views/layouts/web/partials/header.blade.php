@@ -1,7 +1,7 @@
 <header class="relative w-full z-50 ">
     {{-- Top bar --}}
     <div class="bg-[var(--primary-color)] text-[var(--white-text)] py-3 px-4 rounded-t-[20px]">
-        <p class="text-center text-[16px] md:text-[18px] font-medium">Welcome To Peak Peptides</p>
+        <p class="text-center text-[16px] md:text-[18px] font-medium style-inter">Welcome To Peak Peptides</p>
     </div>
 
     {{-- Main nav --}}
@@ -13,7 +13,7 @@
             </a>
 
             {{-- Desktop menu (≥1024px) --}}
-            <nav class="desktop-menu">
+            <nav class="desktop-menu style-inter">
                 <a href="/" class="desktop-menu-item">Home</a>
                 <a href="#" class="desktop-menu-item">About</a>
                 <div class="relative group">
@@ -38,7 +38,7 @@
     </div>
 
     {{-- Mobile menu (<1024px) --}}
-    <div id="mobileMenu" class="hidden lg:hidden border-t border-gray-200 bg-white">
+    <div id="mobileMenu" class="hidden lg:hidden border-t border-gray-200 bg-white style-inter">
         <nav class="mobile-menu">
             <a href="#" class="mobile-menu-item">Home</a>
             <a href="#" class="mobile-menu-item">About</a>

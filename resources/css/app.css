@@ -2,6 +2,82 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Poppins font from public/fonts/poppins */
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/poppins/Poppins-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/poppins/Poppins-Italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/poppins/Poppins-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/poppins/Poppins-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/poppins/Poppins-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/poppins/Poppins-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* Inter font from public/fonts/Inter */
+@font-face {
+    font-family: 'Inter';
+    src: url('/fonts/Inter/static/Inter_18pt-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Inter';
+    src: url('/fonts/Inter/static/Inter_18pt-Italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Inter';
+    src: url('/fonts/Inter/static/Inter_18pt-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Inter';
+    src: url('/fonts/Inter/static/Inter_18pt-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Inter';
+    src: url('/fonts/Inter/static/Inter_18pt-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Inter';
+    src: url('/fonts/Inter/static/Inter_18pt-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
 :root {
     --bg-color: #FCFAF9;
     --text-color: #454545;
@@ -17,6 +93,14 @@ body {
 /* Alpine.js: hide until ready */
 [x-cloak] {
     display: none !important;
+}
+
+.style-poppines {
+    font-family: 'Poppins', sans-serif;
+}
+
+.style-inter {
+    font-family: 'Inter', sans-serif;
 }
 
 .desktop-menu {
