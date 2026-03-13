@@ -10,9 +10,9 @@
                data-aos-duration="1500"
                data-aos-delay="100"
                data-aos-easing="ease-out">
-                <img src="{{ asset('images/footer-logo.png') }}"
+                <img src="{{ asset('images/new-footer-logo.png') }}"
                      alt="Peak Peptides"
-                     class="md:h-16 h-10 w-auto object-contain mx-auto"/>
+                     class="w-full max-w-[250px]"/>
             </a>
 
           
@@ -59,6 +59,13 @@
                     </div>
                 </div>
 
+                <a href="{{ url('#') }}" class="footer-nav-item"
+                   data-aos="fade-down"
+                   data-aos-duration="1500"
+                   data-aos-delay="500"
+                   data-aos-easing="ease-out">
+                    Provider
+                </a>
                 <a href="{{ url('/certificate-of-analysis') }}" class="footer-nav-item"
                    data-aos="fade-down"
                    data-aos-duration="1500"
