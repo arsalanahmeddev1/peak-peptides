@@ -6,7 +6,10 @@
     <main>
         <section class="inner-page-section">
             <div class="form-card">
-                <a href="{{ url('/') }}" class="flex justify-center mb-6">
+                <a href="{{ url('/') }}" class="flex justify-center mb-6"
+                   data-aos="fade-down"
+                   data-aos-duration="1500"
+                   data-aos-easing="ease-out">
                     <img src="{{ asset('images/logo.png') }}" alt="Peak Peptides" class="h-10 md:h-12 w-auto object-contain">
                 </a>
                 {{ $slot }}
