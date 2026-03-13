@@ -8,28 +8,30 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16 md:h-20">
             {{-- Logo --}}
-            <a href="#" class="flex items-center shrink-0">
+            <a href="{{ url('/') }}" class="flex items-center shrink-0">
                 <img src="{{ asset('images/logo.png') }}" alt="Peak Peptides" class="w-full h-8 md:h-12" data-aos="fade-down" data-aos-duration="1500" data-aos-delay="100">
             </a>
 
             {{-- Desktop menu (≥1024px) --}}
             <nav class="desktop-menu style-inter">
                 <a href="/" class="desktop-menu-item" data-aos="fade-down" data-aos-duration="1500" data-aos-delay="100">Home</a>
-                <a href="#" class="desktop-menu-item" data-aos="fade-down" data-aos-duration="1500" data-aos-delay="200">About</a>
+                <a href="{{ url('/about') }}" class="desktop-menu-item" data-aos="fade-down" data-aos-duration="1500" data-aos-delay="200">About</a>
                 <div class="relative group" data-aos="fade-down" data-aos-duration="1500" data-aos-delay="300">
+                    <a href="{{ url('/peptides') }}" class="desktop-menu-item">
                     <button type="button" id="peptidesBtn" class="flex items-center gap-1 hover:text-primary transition">
                         Peptides
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                         </svg>
                     </button>
+                    </a>
                     <div id="peptidesDropdown" class="desktop-menu-dropdown">
-                        <a href="#" class="desktop-menu-dropdown-item">All Peptides</a>
+                        <a href="{{ url('/peptides') }}" class="desktop-menu-dropdown-item">All Peptides</a>
                         <a href="#" class="desktop-menu-dropdown-item">Research</a>
                     </div>
                 </div>
-                <a href="#" class="desktop-menu-item" data-aos="fade-down" data-aos-duration="1500" data-aos-delay="400">Certificate of Analysis</a>
-                <a href="#" class="desktop-menu-item" data-aos="fade-down" data-aos-duration="1500" data-aos-delay="500" data-aos-easing="ease-in-out">Contact</a>
+                <a href="{{ url('/certificate-of-analysis') }}" class="desktop-menu-item" data-aos="fade-down" data-aos-duration="1500" data-aos-delay="400">Certificate of Analysis</a>
+                <a href="{{ url('/contact') }}" class="desktop-menu-item" data-aos="fade-down" data-aos-duration="1500" data-aos-delay="500" data-aos-easing="ease-in-out">Contact</a>
             </nav>
 
             {{-- Hamburger (mobile) --}}
@@ -41,22 +43,24 @@
     <div id="mobileMenu" class="hidden lg:hidden border-t border-gray-200 bg-white style-inter">
         <nav class="mobile-menu">
             <a href="#" class="mobile-menu-item">Home</a>
-            <a href="#" class="mobile-menu-item">About</a>
+            <a href="{{ url('/about') }}" class="mobile-menu-item">About</a>
             {{-- Peptides dropdown (mobile) --}}
             <div class="border-b border-gray-100">
+              
                 <button type="button" id="mobilePeptidesBtn" class="w-full flex items-center justify-between py-3 text-left hover:text-primary transition">
                     Peptides
                     <svg id="mobilePeptidesChevron" class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                     </svg>
                 </button>
+            
                 <div id="mobilePeptidesDropdown" class="hidden pl-4 pb-2">
                     <a href="#" class="desktop-menu-dropdown-item">All Peptides</a>
                     <a href="#" class="desktop-menu-dropdown-item">Research</a>
                 </div>
             </div>
-            <a href="#" class="mobile-menu-item">Certificate of Analysis</a>
-            <a href="#" class="mobile-menu-item">Contact</a>
+            <a href="{{ url('/certificate-of-analysis') }}" class="mobile-menu-item">Certificate of Analysis</a>
+            <a href="{{ url('/contact') }}" class="mobile-menu-item">Contact</a>
         </nav>
     </div>
 </header>

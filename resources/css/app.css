@@ -84,10 +84,12 @@
     --white-text: #FFFFFF;
     --primary-color: #1C5488;
     --button-bg: #0B4F9F;
+
 }
 
 body {
     background-color: var(--bg-color);
+    overflow-x: hidden;
 }
 
 /* Alpine.js: hide until ready */
@@ -188,6 +190,27 @@ body {
     @apply block px-4 py-2 text-[16px] md:text-[18px] text-[var(--primary-color)] hover:bg-gray-100;
 }
 
+/* Footer Peptides dropdown: visible on mobile when open (click toggle) */
+.footer-dropdown-menu {
+    @apply absolute left-1/2 -translate-x-1/2 top-full mt-3 w-48 min-w-[180px] bg-white rounded-xl shadow-xl border-2 border-gray-100 py-2 z-50
+    opacity-0 invisible transition-all duration-200;
+}
+.footer-dropdown-menu.open {
+    opacity: 1;
+    visibility: visible;
+}
+@media (min-width: 1024px) {
+    .footer-dropdown-menu {
+        @apply group-hover:opacity-100 group-hover:visible;
+    }
+    .footer-dropdown-menu.open {
+        @apply opacity-100 visible;
+    }
+}
+.footer-dropdown-menu .footer-dropdown-nav-item {
+    @apply py-3 px-4 text-[15px] md:text-[16px] font-medium border-b border-gray-100 last:border-b-0;
+}
+
 .dropdown-menu {
     @apply absolute left-1/2 -translate-x-1/2 top-full mt-2 w-44 bg-white rounded-lg shadow-lg
     opacity-0 invisible group-hover:opacity-100 group-hover:visible transition;
@@ -274,6 +297,37 @@ body {
 
 .testimonial-content {
     @apply relative p-8 flex flex-col justify-between h-full text-[var(--text-color)] mx-auto;
+}
+
+/* ========== Global inner pages (about, etc.) ========== */
+.inner-page-hero {
+    @apply relative overflow-hidden rounded-[22px] bg-cover bg-center bg-no-repeat w-full mt-[10px] flex items-center justify-center;
+    min-height: 280px;
+}
+@media (min-width: 768px) {
+    .inner-page-hero {
+        min-height: 320px;
+    }
+}
+@media (min-width: 1024px) {
+    .inner-page-hero {
+        min-height: 380px;
+    }
+}
+.inner-page-hero-title {
+    @apply text-[var(--white-text)] font-bold leading-tight text-[30px] md:text-[40px] style-poppines px-6 sm:px-10 md:px-16 text-center max-w-4xl mx-auto;
+}
+.section-label {
+    @apply inline-block text-[var(--primary-color)] bg-[var(--white-text)] px-4 py-1 font-bold text-[15px] tracking-wider mb-5 style-poppines;
+}
+.section-text {
+    @apply text-[var(--text-color)] leading-[1.5] max-w-[900px] mx-auto text-[18px] md:text-[22px] font-normal style-inter;
+}
+.section-heading {
+    @apply text-[var(--text-color)] font-semibold text-[26px] md:text-[36px] leading-[1.2] mb-6 style-poppines;
+}
+.section-heading-accent {
+    @apply text-[var(--primary-color)] italic font-bold;
 }
 
 /* ========== Global inner page & form (auth, etc.) ========== */
