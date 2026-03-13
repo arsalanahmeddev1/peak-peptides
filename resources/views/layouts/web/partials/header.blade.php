@@ -1,6 +1,6 @@
 <header class="relative w-full z-50 ">
     {{-- Top bar --}}
-    <div class="bg-[var(--primary-color)] text-[var(--white-text)] py-3 px-4 rounded-t-[20px]">
+    <div class="bg-[var(--primary-color)] text-[var(--white-text)] py-3 px-4 rounded-t-[20px]" data-aos="fade-down" data-aos-duration="1500" data-aos-delay="100">
         <p class="text-center text-[16px] md:text-[18px] font-medium style-inter">Welcome To Peak Peptides</p>
     </div>
 
@@ -9,14 +9,14 @@
         <div class="flex items-center justify-between h-16 md:h-20">
             {{-- Logo --}}
             <a href="#" class="flex items-center shrink-0">
-                <img src="{{ asset('images/logo.png') }}" alt="Peak Peptides" class="w-full h-8 md:h-12">
+                <img src="{{ asset('images/logo.png') }}" alt="Peak Peptides" class="w-full h-8 md:h-12" data-aos="fade-down" data-aos-duration="1500" data-aos-delay="100">
             </a>
 
             {{-- Desktop menu (≥1024px) --}}
             <nav class="desktop-menu style-inter">
-                <a href="/" class="desktop-menu-item">Home</a>
-                <a href="#" class="desktop-menu-item">About</a>
-                <div class="relative group">
+                <a href="/" class="desktop-menu-item" data-aos="fade-down" data-aos-duration="1500" data-aos-delay="100">Home</a>
+                <a href="#" class="desktop-menu-item" data-aos="fade-down" data-aos-duration="1500" data-aos-delay="200">About</a>
+                <div class="relative group" data-aos="fade-down" data-aos-duration="1500" data-aos-delay="300">
                     <button type="button" id="peptidesBtn" class="flex items-center gap-1 hover:text-primary transition">
                         Peptides
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -28,8 +28,8 @@
                         <a href="#" class="desktop-menu-dropdown-item">Research</a>
                     </div>
                 </div>
-                <a href="#" class="desktop-menu-item">Certificate of Analysis</a>
-                <a href="#" class="desktop-menu-item">Contact</a>
+                <a href="#" class="desktop-menu-item" data-aos="fade-down" data-aos-duration="1500" data-aos-delay="400">Certificate of Analysis</a>
+                <a href="#" class="desktop-menu-item" data-aos="fade-down" data-aos-duration="1500" data-aos-delay="500" data-aos-easing="ease-in-out">Contact</a>
             </nav>
 
             {{-- Hamburger (mobile) --}}

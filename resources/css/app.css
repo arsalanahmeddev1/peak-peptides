@@ -108,7 +108,22 @@ body {
 }   
 
 .desktop-menu-item {
-    @apply hover:text-[var(--primary-color)] transition;
+    @apply hover:text-[var(--primary-color)] transition relative inline-block;
+}
+.desktop-menu-item::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    height: 2px;
+    width: 100%;
+    background-color: var(--primary-color);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+}
+.desktop-menu-item:hover::after {
+    transform: scaleX(1);
 }
 
 .desktop-menu-dropdown {
@@ -137,10 +152,36 @@ body {
 }
 
 .footer-nav-item {
-    @apply text-[16px] md:text-[18px] font-medium transition;
+    @apply text-[16px] md:text-[18px] font-medium transition relative inline-block;
+}
+.footer-nav-item::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    height: 2px;
+    width: 100%;
+    background-color: var(--primary-color);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+}
+.footer-nav-item:hover::after {
+    transform: scaleX(1);
 }
 .footer-nav-item:hover {
     @apply text-[var(--primary-color)];
+}
+
+/* Footer Peptides link: keep icon inline with text */
+.footer-nav .group a.footer-nav-item {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+}
+.footer-nav .group a.footer-nav-item svg {
+    flex-shrink: 0;
+    vertical-align: middle;
 }
 
 .footer-dropdown-nav-item {
@@ -234,4 +275,29 @@ body {
 .testimonial-content {
     @apply relative p-8 flex flex-col justify-between h-full text-[var(--text-color)] mx-auto;
 }
+
+/* ========== Global inner page & form (auth, etc.) ========== */
+.inner-page-section {
+    @apply w-full py-10 md:py-20 px-4 sm:px-6 md:px-8;
+}
+.form-card {
+    @apply max-w-md mx-auto bg-white rounded-[22px] shadow-lg border border-gray-100 p-6 sm:p-8;
+}
+.form-title {
+    @apply text-[var(--text-color)] font-bold text-[22px] md:text-[28px] leading-tight style-poppines mb-6 text-center;
+}
+.form-label {
+    @apply block font-medium text-sm text-[var(--text-color)] style-inter mb-1;
+}
+.form-input {
+    @apply block w-full rounded-lg border border-gray-300 px-4 py-2.5 text-[var(--text-color)] style-inter
+           focus:border-[var(--primary-color)] focus:ring-2 focus:ring-[var(--primary-color)] focus:ring-opacity-30 transition;
+}
+.form-error {
+    @apply text-sm text-red-600 mt-1 style-inter;
+}
+.form-link {
+    @apply text-sm text-[var(--text-color)] hover:text-[var(--primary-color)] transition style-inter;
+}
+
 
