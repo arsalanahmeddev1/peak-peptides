@@ -6,6 +6,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/about', function () {
+    return view('inner-pages.about');
+});
+Route::get('/peptides', function () {
+    return view('inner-pages.peptides');
+});
+Route::get('/certificate-of-analysis', function () {
+    return view('inner-pages.certificate-of-analysis');
+});
+Route::get('/contact', function () {
+    return view('inner-pages.contact');
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');

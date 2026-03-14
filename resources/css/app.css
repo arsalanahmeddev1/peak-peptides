@@ -2,16 +2,94 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Poppins font from public/fonts/poppins */
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/poppins/Poppins-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/poppins/Poppins-Italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/poppins/Poppins-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/poppins/Poppins-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/poppins/Poppins-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/poppins/Poppins-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* Inter font from public/fonts/Inter */
+@font-face {
+    font-family: 'Inter';
+    src: url('/fonts/Inter/static/Inter_18pt-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Inter';
+    src: url('/fonts/Inter/static/Inter_18pt-Italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Inter';
+    src: url('/fonts/Inter/static/Inter_18pt-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Inter';
+    src: url('/fonts/Inter/static/Inter_18pt-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Inter';
+    src: url('/fonts/Inter/static/Inter_18pt-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Inter';
+    src: url('/fonts/Inter/static/Inter_18pt-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
 :root {
     --bg-color: #FCFAF9;
     --text-color: #454545;
     --white-text: #FFFFFF;
     --primary-color: #1C5488;
     --button-bg: #0B4F9F;
+
 }
 
 body {
     background-color: var(--bg-color);
+    overflow-x: hidden;
 }
 
 /* Alpine.js: hide until ready */
@@ -19,12 +97,35 @@ body {
     display: none !important;
 }
 
+.style-poppines {
+    font-family: 'Poppins', sans-serif;
+}
+
+.style-inter {
+    font-family: 'Inter', sans-serif;
+}
+
 .desktop-menu {
     @apply hidden lg:flex items-center gap-6 xl:gap-8 text-[18px] font-medium text-[var(--text-color)];
 }   
 
 .desktop-menu-item {
-    @apply hover:text-[var(--primary-color)] transition;
+    @apply hover:text-[var(--primary-color)] transition relative inline-block;
+}
+.desktop-menu-item::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    height: 2px;
+    width: 100%;
+    background-color: var(--primary-color);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+}
+.desktop-menu-item:hover::after {
+    transform: scaleX(1);
 }
 
 .desktop-menu-dropdown {
@@ -53,14 +154,61 @@ body {
 }
 
 .footer-nav-item {
-    @apply text-[16px] md:text-[18px] font-medium transition;
+    @apply text-[16px] md:text-[18px] font-medium transition relative inline-block;
+}
+.footer-nav-item::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    height: 2px;
+    width: 100%;
+    background-color: var(--primary-color);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+}
+.footer-nav-item:hover::after {
+    transform: scaleX(1);
 }
 .footer-nav-item:hover {
     @apply text-[var(--primary-color)];
 }
 
+/* Footer Peptides link: keep icon inline with text */
+.footer-nav .group a.footer-nav-item {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+}
+.footer-nav .group a.footer-nav-item svg {
+    flex-shrink: 0;
+    vertical-align: middle;
+}
+
 .footer-dropdown-nav-item {
     @apply block px-4 py-2 text-[16px] md:text-[18px] text-[var(--primary-color)] hover:bg-gray-100;
+}
+
+/* Footer Peptides dropdown: visible on mobile when open (click toggle) */
+.footer-dropdown-menu {
+    @apply absolute left-1/2 -translate-x-1/2 top-full mt-3 w-48 min-w-[180px] bg-white rounded-xl shadow-xl border-2 border-gray-100 py-2 z-50
+    opacity-0 invisible transition-all duration-200;
+}
+.footer-dropdown-menu.open {
+    opacity: 1;
+    visibility: visible;
+}
+@media (min-width: 1024px) {
+    .footer-dropdown-menu {
+        @apply group-hover:opacity-100 group-hover:visible;
+    }
+    .footer-dropdown-menu.open {
+        @apply opacity-100 visible;
+    }
+}
+.footer-dropdown-menu .footer-dropdown-nav-item {
+    @apply py-3 px-4 text-[15px] md:text-[16px] font-medium border-b border-gray-100 last:border-b-0;
 }
 
 .dropdown-menu {
@@ -150,4 +298,60 @@ body {
 .testimonial-content {
     @apply relative p-8 flex flex-col justify-between h-full text-[var(--text-color)] mx-auto;
 }
+
+/* ========== Global inner pages (about, etc.) ========== */
+.inner-page-hero {
+    @apply relative overflow-hidden rounded-[22px] bg-cover bg-center bg-no-repeat w-full mt-[10px] flex items-center justify-center;
+    min-height: 280px;
+}
+@media (min-width: 768px) {
+    .inner-page-hero {
+        min-height: 320px;
+    }
+}
+@media (min-width: 1024px) {
+    .inner-page-hero {
+        min-height: 380px;
+    }
+}
+.inner-page-hero-title {
+    @apply text-[var(--white-text)] font-bold leading-tight text-[30px] md:text-[40px] style-poppines px-6 sm:px-10 md:px-16 text-center max-w-4xl mx-auto;
+}
+.section-label {
+    @apply inline-block text-[var(--primary-color)] bg-[var(--white-text)] px-4 py-1 font-bold text-[15px] tracking-wider mb-5 style-poppines;
+}
+.section-text {
+    @apply text-[var(--text-color)] leading-[1.5] max-w-[900px] mx-auto text-[18px] md:text-[22px] font-normal style-inter;
+}
+.section-heading {
+    @apply text-[var(--text-color)] font-semibold text-[26px] md:text-[36px] leading-[1.2] mb-6 style-poppines;
+}
+.section-heading-accent {
+    @apply text-[var(--primary-color)] italic font-bold;
+}
+
+/* ========== Global inner page & form (auth, etc.) ========== */
+.inner-page-section {
+    @apply w-full py-10 md:py-20 px-4 sm:px-6 md:px-8;
+}
+.form-card {
+    @apply max-w-md mx-auto bg-white rounded-[22px] shadow-lg border border-gray-100 p-6 sm:p-8;
+}
+.form-title {
+    @apply text-[var(--text-color)] font-bold text-[22px] md:text-[28px] leading-tight style-poppines mb-6 text-center;
+}
+.form-label {
+    @apply block font-medium text-sm text-[var(--text-color)] style-inter mb-1;
+}
+.form-input {
+    @apply block w-full rounded-lg border border-gray-300 px-4 py-2.5 text-[var(--text-color)] style-inter
+           focus:border-[var(--primary-color)] focus:ring-2 focus:ring-[var(--primary-color)] focus:ring-opacity-30 transition;
+}
+.form-error {
+    @apply text-sm text-red-600 mt-1 style-inter;
+}
+.form-link {
+    @apply text-sm text-[var(--text-color)] hover:text-[var(--primary-color)] transition style-inter;
+}
+
 
