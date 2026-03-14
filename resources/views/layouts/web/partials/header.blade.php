@@ -9,7 +9,7 @@
         <div class="flex items-center justify-between h-16 md:h-20">
             {{-- Logo --}}
             <a href="{{ url('/') }}" class="flex items-center shrink-0">
-                <img src="{{ asset('images/new-logo.png') }}" alt="Peak Peptides" class="w-full max-w-[120px]" data-aos="fade-down" data-aos-duration="1500" data-aos-delay="100">
+                <img src="{{ asset('images/new-logo.png') }}" alt="Peak Peptides" class="w-full md:max-w-[120px] max-w-[100px]" data-aos="fade-down" data-aos-duration="1500" data-aos-delay="100">
             </a>
 
             {{-- Desktop menu (≥1024px) --}}
